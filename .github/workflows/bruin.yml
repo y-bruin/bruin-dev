@@ -14,8 +14,8 @@ jobs:
     - uses: bruin-data/bruin-setup-action@main
     - run: bruin validate ./bruin-pipeline/
       name: Validate Pipeline
-    - run: bruin format ./bruin-pipeline/
-      name: Format Pipeline
+    # - run: bruin format ./bruin-pipeline/
+    #   name: Format Pipeline
     - name: Lineage
       run: |
         bruin lineage bruin-pipeline/assets/example.sql
