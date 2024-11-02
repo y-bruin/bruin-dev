@@ -6,23 +6,8 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  windows:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    # Installs latest
-    - uses: bruin-data/bruin-setup-action@main
-    - run: bruin validate ./bruin-pipeline/
-      name: Validate Pipeline
-    # - run: bruin format ./bruin-pipeline/
-    #   name: Format Pipeline
-    - name: Lineage
-      run: |
-        bruin lineage bruin-pipeline/assets/example.sql
-        bruin lineage bruin-pipeline/assets/pythonsample/country_list.py
-      
   linux:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     # Installs latest
@@ -31,6 +16,21 @@ jobs:
       name: Validate Pipeline
     - run: bruin format ./bruin-pipeline/
       name: Format Pipeline
+    - name: Lineage
+      run: |
+        bruin lineage bruin-pipeline/assets/example.sql
+        bruin lineage bruin-pipeline/assets/pythonsample/country_list.py
+      
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    # Installs latest
+    - uses: bruin-data/bruin-setup-action@main
+    - run: bruin validate ./bruin-pipeline/
+      name: Validate Pipeline
+    # - run: bruin format ./bruin-pipeline/
+    #   name: Format Pipeline
     - name: Lineage
       run: |
         bruin lineage bruin-pipeline/assets/example.sql
