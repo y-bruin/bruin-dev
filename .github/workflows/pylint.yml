@@ -1,0 +1,28 @@
+name: Bruin
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    # Installs latest
+    - uses: y-bruin/bruin-setup-action@v1
+    - run: bruin --version
+
+  buildw:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    # Installs latest
+    - uses: y-bruin/bruin-setup-action@v1
+    - run: bruin --version
+
+  buildd:
+    runs-on: darwin-latest
+    steps:
+    - uses: actions/checkout@v2
+    # Installs latest
+    - uses: y-bruin/bruin-setup-action@v1
+    - run: bruin --version
