@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Installs latest
-    - uses: y-bruin/bruin-setup-action@v1
+    - uses: y-bruin/bruin-setup-action@main
     - run: bruin --version
 
   buildw:
@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Installs latest
-    - uses: y-bruin/bruin-setup-action@v1
+    - uses: y-bruin/bruin-setup-action@main
     - run: bruin --version
 
   buildd:
@@ -24,5 +24,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Installs latest
-    - uses: y-bruin/bruin-setup-action@v1
+    - uses: y-bruin/bruin-setup-action@main
     - run: bruin --version
