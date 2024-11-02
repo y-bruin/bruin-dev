@@ -1,28 +1,37 @@
-name: Bruin
+name: Bruin Test
 
-on: [push]
+on: 
+  push:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  build:
+  windows:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     # Installs latest
-    - uses: y-bruin/bruin-setup-action@main
-    - run: bruin --version
-
-  buildw:
+    - uses: bruin-data/bruin-setup-action@main
+    - run: bruin validate ./bruin-pipeline/
+      name: Validate Pipeline
+    - run: bruin format
+      name: Format Pipeline
+    - name: Lineage
+      run: |
+        bruin lineage bruin-pipeline/assets/example.sql
+        bruin lineage bruin-pipeline/assets/pythonsample/country_list.py
+      
+  linux:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     # Installs latest
-    - uses: y-bruin/bruin-setup-action@main
-    - run: bruin --version
-
-  buildd:
-    runs-on: darwin-latest
-    steps:
-    - uses: actions/checkout@v2
-    # Installs latest
-    - uses: y-bruin/bruin-setup-action@main
-    - run: bruin --version
+    - uses: bruin-data/bruin-setup-action@main
+    - run: bruin validate ./bruin-pipeline/
+      name: Validate Pipeline
+    - run: bruin format
+      name: Format Pipeline
+    - name: Lineage
+      run: |
+        bruin lineage bruin-pipeline/assets/example.sql
+        bruin lineage bruin-pipeline/assets/pythonsample/country_list.py
