@@ -8,4 +8,9 @@ depends:
   - users
 @bruin */
 
-select id, name, last_name from users;
+select 
+    id, 
+    name, 
+    last_name,
+    now() as current_timestamp 
+from users;
