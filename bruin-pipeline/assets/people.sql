@@ -12,5 +12,5 @@ select
     id, 
     name, 
     last_name,
-    now() as current_timestamp 
+    now() as updated_at
 from users;
