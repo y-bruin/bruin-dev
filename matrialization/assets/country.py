@@ -1,6 +1,6 @@
 """ @bruin
 
-name: country
+name: raw.country
 tags:
     - tag1
     - tag2
