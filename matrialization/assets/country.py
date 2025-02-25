@@ -7,7 +7,7 @@ tags:
 materialization:
     type: table
 
-connection: duckdb-default
+connection: gcp-default
 
 @bruin """
 
